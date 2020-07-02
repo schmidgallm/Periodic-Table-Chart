@@ -1,0 +1,150 @@
+:root {
+  --nonmetal: #455c7b;
+  --noble: #685c79;
+  --alkali: #ac6c82;
+  --metalloid: #da727e;
+  --halogen: #ffbc67;
+  --alkaline: #8c5845;
+  --transition: #a69256;
+  --lanthanoid: #718c5e;
+  --actinoid: #80b9bf;
+  --postTransition: #235459;
+  --metal: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  border: 1px solid #2e2e2e;
+  box-shadow: 2px 2px 5px #2e2e2e;
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+.modal .preview {
+  width: 150px;
+  min-height: 100px;
+  border: 1px solid black;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.modal .preview h1,
+.modal .preview p {
+  text-align: left;
+}
+
+.modal .content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 10px auto;
+  padding: 15px;
+}
+
+.modal .content p {
+  margin: 3px auto;
+  font-weight: bold;
+}
+
+.content p span {
+  color: red;
+}
+
+.grid {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  width: 95%;
+  margin: 20px auto;
+}
+
+.grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #232323;
+  cursor: pointer;
+  width: 100%;
+  height: 90px;
+  transition: all 0.3s ease-in;
+}
+
+.grid > div:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.element p {
+  margin: 5px auto;
+}
+
+.nonmetal {
+  background-color: var(--nonmetal);
+}
+
+.noble {
+  background-color: var(--noble);
+}
+
+.alkali {
+  background-color: var(--alkali);
+}
+
+.metalloid {
+  background-color: var(--metalloid);
+}
+
+.halogen {
+  background-color: var(--halogen);
+}
+
+.alkaline {
+  background-color: var(--alkaline);
+}
+
+.transition {
+  background-color: var(--transition);
+}
+
+.lanthanoid {
+  background-color: var(--lanthanoid);
+}
+
+.actinoid {
+  background-color: var(--actinoid);
+}
+
+.alkali {
+  background-color: var(--alkali);
+}
+
+.post-transition {
+  background-color: var(--postTransition);
+}
