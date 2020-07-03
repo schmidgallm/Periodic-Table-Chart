@@ -1,45 +1,43 @@
 // Fetch periodic table of elements in json format
 fetch('https://neelpatel05.pythonanywhere.com', {
-  method: 'GET',
+	method: 'GET'
 })
-  .then((response) => {
-    // The API call was successful!
-    if (response.ok) {
-      return response.json();
-    } else {
-      return Promise.reject(response);
-    }
-  })
-  .then((data) => {
-    // This is the JSON from our response
-    console.log(data);
-    createElementDiv(data);
-  })
-
-  .catch((err) => {
-    // There was an error
-    console.warn('Something went wrong.', err);
-  });
+	.then((response) => {
+		// The API call was successful!
+		if (response.ok) {
+			return response.json();
+		} else {
+			return Promise.reject(response);
+		}
+	})
+	.then((data) => {
+		// This is the JSON from our response
+		console.log(data);
+		createElementDiv(data);
+	})
+	.catch((err) => {
+		// There was an error
+		console.warn('Something went wrong.', err);
+	});
 
 // Create Element Div and insert into DOM
 createElementDiv = (elem) => {
-  const wrapper = document.querySelector('#wrapper');
+	const wrapper = document.querySelector('#wrapper');
 
-  elem.forEach((el) => {
-    const div = document.createElement('div');
-    div.className = `element ${el.groupBlock}`;
-    div.id = 'e-' + el.atomicNumber;
-    div.innerHTML = `<p>${el.atomicNumber}</p> <p>${el.symbol}</p>`;
-    div.addEventListener('click', () => initModal(el));
-    wrapper.appendChild(div);
-  });
+	elem.forEach((el) => {
+		const div = document.createElement('div');
+		div.className = `element ${el.groupBlock}`;
+		div.id = 'e-' + el.atomicNumber;
+		div.innerHTML = `<p>${el.atomicNumber}</p> <p>${el.symbol}</p>`;
+		div.addEventListener('click', () => initModal(el));
+		wrapper.appendChild(div);
+	});
 };
 
 const modal = document.querySelector('.modal');
 
 const initModal = (el) => {
-  modal.classList.remove('hide');
-  modal.innerHTML = `
+	modal.innerHTML = `
   <div class="preview">
     <p>${el.atomicNumber}</p>
     <h1>${el.symbol}</h1>
@@ -69,10 +67,11 @@ const initModal = (el) => {
   `;
 };
 
-const wrapper = document.querySelector('#wrapper');
-console.log(wrapper);
-wrapper.addEventListener('click', () => {
-  if (!modal.classList.contains('hide')) {
-    modal.classList.remove('hide');
-  }
+// Toggle Modal
+document.addEventListener('click', () => {
+	if (modal.classList.contains('hide')) {
+		modal.classList.remove('hide');
+	} else {
+		modal.classList.add('hide');
+	}
 });
